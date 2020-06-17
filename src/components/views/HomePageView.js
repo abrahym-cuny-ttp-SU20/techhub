@@ -3,7 +3,16 @@ import React from 'react';
 const HomePageView = (props) => {
 
     return(
-        <h1>Home Page</h1>
+    	<>
+        	<div className="landing-container">
+            	<div className="">
+            		<h1>The One Stop Shop for Tech Heads</h1>
+
+            		<button>Sign Up for Free</button>
+            	</div>
+            </div>
+
+        </>
     )
 }
 export default HomePageView;

@@ -1,1 +1,8 @@
-export { default as HomePageView } from "./HomePageView";
+// Mini Components
+export { default as NavBarView } from "./NavBarView";
+
+
+// Componenet Routes
+export { default as HomePageView} from "./HomePageView";
+export { default as AboutPageView } from "./AboutPageView";
+export { default as JobsPageView } from "./JobsPageView";
