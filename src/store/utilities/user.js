@@ -55,40 +55,56 @@ export const fetchUserThunk = (id) => (dispatch) => {
 };
 
 //Still working on
-export const userLoginThunk = (loginCred) => (dispatch) => {
+export const userLoginThunk = (loginCred, ownProps) => (dispatch) => {
   return axios
     .post(`/api/users/login`, loginCred)
     .then((res) => res.data)
-    .then((user) => dispatch(userLogin(user)))
+    .then((user) => {
+      ownProps.history.push(`/`);
+      return dispatch(userLogin(user));
+    })
     .catch((err) => console.log(err));
 };
 
 //Still working on
-export const userSignupThunk = (newUser,ownProps) => (dispatch) => {
+export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
   return axios
     .post(`/api/users/signup`, newUser)
     .then((res) => res.data)
-    .then((user) => dispatch(userSignup(user)))
+    .then((user) => {
+      ownProps.history.push("/");
+      return dispatch(userSignup(user));
+    })
     .catch((err) => console.log(err));
 };
 
 export const userLogoutThunk = (user) => (dispatch) => {
-  return axios.post(`/api/users/logout`,user).then(() => dispatch(userLogout()))
-}
+  return axios
+    .post(`/api/users/logout`, user)
+    .then(() => dispatch(userLogout()));
+};
 
 /**
  * REDUCER
  * Purpose: Take the action and matches with appropriate type and returns.
  * Extra Info: Used by the store in store/index.js
  */
-const reducer = (state = {}, action) => {
+const initialState = {
+  isAuthUser: !!localStorage.getItem("user"),
+  user: JSON.parse(localStorage.getItem("user")) || {},
+};
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_USER:
       return action.payload;
     case USER_LOGIN:
-      return action.payload;
+      localStorage.setItem("user", action.payload);
+      return { ...state, isAuthUser: true, user: action.payload.user };
     case USER_SIGNUP:
-      return action.payload;
+      return state;
+    case USER_LOGOUT:
+      localStorage.removeItem("user");
+      return { ...state, isAuthUser: false, user: {} };
     default:
       return state;
   }
