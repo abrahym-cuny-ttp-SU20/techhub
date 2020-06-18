@@ -5,7 +5,7 @@ import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import * as storage from "redux-storage";
 import throttle from "lodash/throttle";
-
+import { sessionService ,sessionReducer} from "redux-react-session";
 // Individual reducers altogether under an alias;
 import * as reducers from "../reducers";
 
@@ -21,7 +21,6 @@ const loadState = () => {
     return undefined;
   }
 };
-
 const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
@@ -30,17 +29,20 @@ const saveState = (state) => {
     // Ignore write errors;
   }
 };
-
 const persistedState = loadState();
 
 // Construct our Redux store;
-const rootReducer = storage.reducer(combineReducers(reducers));
+const rootReducer = storage.reducer(combineReducers({...reducers, session: sessionReducer}));
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, logger)
 );
 const store = createStore(rootReducer, persistedState, middleware);
 
+//Init the session service
+sessionService.initSessionService(store);
+
+//Limit the store from looking into localStorage to once every second
 store.subscribe(
   throttle(() => {
     saveState(store.getState());
