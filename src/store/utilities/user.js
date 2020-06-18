@@ -7,6 +7,7 @@ import axios from "axios";
 const FETCH_USER = "FETCH_USER";
 const USER_LOGIN = "USER_LOGIN";
 const USER_SIGNUP = "USER_SIGNUP";
+const USER_LOGOUT = "USER_LOGOUT";
 
 /**
  * ACTION CREATORS
@@ -33,11 +34,18 @@ const userSignup = (user) => {
   };
 };
 
+const userLogout = () => {
+  return {
+    type: USER_LOGOUT,
+  };
+};
+
 /**
  * THUNK CREATORS
  * Purpose: Functions that require external resources are done here.
  * Called in StudentsContainer and passed into dispatch
  */
+//For testing purposes
 export const fetchUserThunk = (id) => (dispatch) => {
   return axios
     .get(`/api/users/${id}`)
@@ -46,6 +54,7 @@ export const fetchUserThunk = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+//Still working on
 export const userLoginThunk = (loginCred) => (dispatch) => {
   return axios
     .post(`/api/users/login`, loginCred)
@@ -54,6 +63,7 @@ export const userLoginThunk = (loginCred) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+//Still working on
 export const userSignupThunk = (newUser,ownProps) => (dispatch) => {
   return axios
     .post(`/api/users/signup`, newUser)
@@ -61,6 +71,11 @@ export const userSignupThunk = (newUser,ownProps) => (dispatch) => {
     .then((user) => dispatch(userSignup(user)))
     .catch((err) => console.log(err));
 };
+
+export const userLogoutThunk = (user) => (dispatch) => {
+  return axios.post(`/api/users/logout`,user).then(() => dispatch(userLogout()))
+}
+
 /**
  * REDUCER
  * Purpose: Take the action and matches with appropriate type and returns.
