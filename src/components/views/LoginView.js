@@ -13,10 +13,10 @@ const LoginView = (props) => {
                 </div>
                 <form onSubmit={props.handleSubmit}>
                     <div className="email">
-                        <input type="email" name="Email"  placeholder="Email Address" value={props.email} onChange={props.handleChange}/>
+                        <input type="email" name="email"  placeholder="Email Address" value={props.email} onChange={props.handleChange}/>
                     </div>
                     <div>
-                        <input type="password" name="name" placeholder="Password" value={props.password} onChange={props.handleChange}/>
+                        <input type="password" name="password" placeholder="Password" value={props.password} onChange={props.handleChange}/>
                     </div>
                     <button type="submit">Login</button>
                 </form>

@@ -58,7 +58,10 @@ export const fetchUserThunk = (id) => (dispatch) => {
 export const userLoginThunk = (loginCred, ownProps) => (dispatch) => {
   return axios
     .post(`/api/users/login`, loginCred)
-    .then((res) => res.data)
+    .then((res) => {
+      console.log(res);
+      return res.data;
+    })
     .then((user) => {
       ownProps.history.push(`/`);
       return dispatch(userLogin(user));

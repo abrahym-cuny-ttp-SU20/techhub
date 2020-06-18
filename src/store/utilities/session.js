@@ -1,43 +1,37 @@
-/**
- *  ACTION TYPE
- *  Purpose: Gets used by the reducer to run a payload
- */
-const LOGIN = "LOGIN";
-const LOGOUT = "LOGOUT";
+import axios from "axios";
+import { sessionService } from "redux-react-session";
+
 
 /**
- * ACTION CREATORS
- * Purpose: Functions that send an action to the reducer.
+ * THUNK CREATORS
+ * Purpose: Functions that require external resources are done here.
+ * Called in StudentsContainer and passed into dispatch
  */
-const login = (session) => {
-    return {
-        type: LOGIN,
-        payload: session,
+export const loginThunk = (user, ownProps) => {
+    return () => {
+        return axios.post(`/api/users/login`,user).then(res => {
+            const { id } = res.data.id;
+            sessionService.saveSession({ id })
+                .then(() => {
+                    sessionService.saveUser(res.data)
+                        .then(() => {
+                            ownProps.history.push('/');
+                        }).catch(err => console.error(err));
+                }).catch(err => console.error(err));
+        });
     };
 };
 
-const logout = (session) => {
-    return {
-        type: LOGOUT,
-        payload: session,
+export const logoutThunk = (ownProps) => {
+    return () => {
+        return axios.post(`/api/users/logout`).then(() => {
+            sessionService.deleteSession();
+            sessionService.deleteUser();
+            ownProps.history.push('/');
+        }).catch(err => {
+            throw (err);
+        });
     };
 };
 
-/**
- * REDUCER
- * Purpose: Take the action and matches with appropriate type and returns.
- * Extra Info: Used by the store in store/index.js
- */
-const initialState = {
-    isLoggedIn: false,
-}
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case LOGIN:
-            return action.payload;
-        case LOGOUT:
-            return action.payload;
-        default:
-            return state;
-    }
-};
+

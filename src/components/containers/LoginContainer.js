@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { LoginView } from "../views/";
-import { userLoginThunk } from "../../thunks";
+import { loginThunk } from "../../thunks";
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
@@ -17,8 +17,9 @@ class LoginContainer extends Component {
   }
 
   handleSubmit = (e) => {
-    this.props.userLogin(this.state);
-  }
+    e.preventDefault();
+    this.props.login(this.state);
+  };
 
   render() {
     return <LoginView {...this.state} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
@@ -26,12 +27,12 @@ class LoginContainer extends Component {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    userLogin: (loginCred) => dispatch(userLoginThunk(loginCred, ownProps)),
+    login: (loginCred) => dispatch(loginThunk(loginCred,ownProps)),
   };
 };
 
 LoginContainer.propTypes = {
-  userLogin: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(LoginContainer);
