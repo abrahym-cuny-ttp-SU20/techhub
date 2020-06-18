@@ -4,3 +4,4 @@ export { default as LoginContainer } from "./LoginContainer";
 export { default as SignupContainer } from "./SignupContainer";
 //export { default as NavBarContainer } from "./NavBarContainer";
 export { default as UserProfileContainer } from "./UserProfileContainer";
+export { default as LinkContainer } from "./LinkContainer";
