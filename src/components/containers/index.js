@@ -2,3 +2,4 @@
 export { default as HomePageContainer } from "./HomePageContainer";
 export { default as LoginContainer } from "./LoginContainer";
 export { default as SignupContainer } from "./SignupContainer";
+export { default as NavBarContainer } from "./NavBarContainer";
