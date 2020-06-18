@@ -13,22 +13,26 @@ const HomePageView = (props) => {
             </div>
             <div className="content-container">
                 <div className="content">
-                    <div class="left-align-image-container">
+                    <div class="left-align image-container">
                         <img src="#" />
                     </div>
-                    <div class="right-align-text-container">
+                    <div class="right-align text-container">
                         <h3>Use it anywhere</h3>
                         <br />
                         <p>One link that directs your audience to all your content</p>
                     </div>
                 </div>
                 <div className="content">
-                    {/* Content similar to above, fitting the design */}
+                    <div class="left-align text-container">
+                        <h3>Easily managed</h3>
+                        <br />
+                        <p>One link that directs your audience to all your content</p>
+                    </div>
+                    <div class="right-align image-container">
+                        <img src="#" />
+                    </div>
                 </div>
             </div>  
-            <div class="footer-container">
-                {/* Footer styling fitting the design */}
-            </div> 
         </>
     )
 }

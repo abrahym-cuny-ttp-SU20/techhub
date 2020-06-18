@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { JobsPageView } from "../views";
+import React from 'react';
 
-class NavBarContainer extends Component {
-  render() {
-    return <JobsPageView />;
-  }
+const JobsPageView = (props) => {
+
+    return(
+    	<h1>Jobs Page View</h1>
+    )
 }
-
-export default JobsPageContainer;
+export default JobsPageView;

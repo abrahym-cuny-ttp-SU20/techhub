@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { AboutPageView } from "../views";
+import React from 'react';
 
-class NavBarContainer extends Component {
-  render() {
-    return <AboutPageView />;
-  }
+const AboutPageView = (props) => {
+
+    return(
+    	<h1>About Page View</h1>
+    )
 }
-
-export default AboutPageContainer;
+export default AboutPageView;
