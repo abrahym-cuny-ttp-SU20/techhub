@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import RoutesContainer from "../components/routes/RoutesContainer";
-import { NavBar, Footer} from "../components/containers";
+import { NavBar, Footer } from "../components/containers";
 
 class App extends Component {
   render() {
@@ -12,9 +12,8 @@ class App extends Component {
         <div className="App-header">
           <RoutesContainer />
         </div>
-
+      
         <Footer />
-
       </div>
     );
   }  
