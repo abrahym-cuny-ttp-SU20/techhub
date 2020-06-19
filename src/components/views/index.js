@@ -7,3 +7,5 @@ export { default as FooterView } from "./FooterView";
 export { default as HomePageView} from "./HomePageView";
 export { default as AboutPageView } from "./AboutPageView";
 export { default as JobsPageView } from "./JobsPageView";
+export { default as LoginView } from "./LoginView";
+export { default as SignupView } from "./SignupView";
