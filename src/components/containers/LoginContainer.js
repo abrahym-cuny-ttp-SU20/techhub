@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { LoginView } from "../views/";
 import { loginThunk } from "../../thunks";
+
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
