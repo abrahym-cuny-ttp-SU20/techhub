@@ -13,12 +13,12 @@ const NavBarView = (props) => {
       			<Link to="/jobs" className="nav-link">Jobs</Link>
     		</div>
     	</div>	
-		<div className="right-align nav-item">
-			<ul>
-				<li>List item</li>
-				<li>List item</li>
-			</ul>
-		</div>
+    	<div className="right-align nav-item">
+    		<ul>
+    			<li>List item</li>
+    			<li>List item</li>
+    		</ul>
+    	</div>
     </nav>
   );
 };
