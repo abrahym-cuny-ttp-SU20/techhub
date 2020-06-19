@@ -1,6 +1,6 @@
 import React from "react";
 import { Paper, Switch } from "@material-ui/core";
-import { DeleteForeverIcon } from "@material-ui/icons";
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const LinkEditView = (props) => {
   return (

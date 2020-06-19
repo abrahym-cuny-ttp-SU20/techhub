@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserProfilePageView = (props) => {
+const EditUserProfilePageView = props => {
   return (
     <div className="page">
       <div className="user-details">
@@ -19,4 +19,4 @@ const UserProfilePageView = (props) => {
   );
 };
 
-export default UserProfilePageView;
+export default EditUserProfilePageView;

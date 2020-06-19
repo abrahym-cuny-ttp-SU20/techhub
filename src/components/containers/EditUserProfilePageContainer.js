@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { UserProfilePageView } from "../views";
+import { EditUserProfilePageView } from "../views";
 import { connect } from "react-redux";
 import { fetchUserThunk } from "../../thunks";
 
-class UserProfilePageContainer extends Component {
+class EditUserProfilePageContainer extends Component {
   componentDidMount() {
     const { id } = this.props.history.match.params;
     this.props.fetchUser(id);
   }
 
   render() {
-    return <UserProfilePageView links={this.props.links} />;
+    return <EditUserProfilePageView links={this.props.links} />;
   }
 }
 const mapStateToProps = (state) => {
@@ -26,11 +26,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-UserProfilePageContainer.propTypes = {
+EditUserProfilePageContainer.propTypes = {
   fetchUser: PropTypes.func.isRequired,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserProfilePageContainer);
+)(EditUserProfilePageContainer);
