@@ -9,3 +9,4 @@ export { default as LoginPageView } from "./LoginView";
 export { default as SignupPageView } from "./SignupView";
 export { default as UserProfilePageView } from "./UserProfilePageView";
 export { default as LinkEditView } from "./LinkEditView";
+export { default as LinkView } from "./LinkView";
