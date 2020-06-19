@@ -4,9 +4,21 @@ import { Link } from "react-router-dom";
 const NavBarView = (props) => {
   return (
     <nav>
-      	<Link to="/" className="nav-link">Home</Link>
-      	<Link to="/about" className="nav-link">About</Link>
-      	<Link to="/jobs" className="nav-link">Jobs</Link>
+    	<div className="left-align nav-item">
+    		<div className="image-container">
+      			<Link to="/" className="nav-link">
+      				<img src="#" alt="Logo"/>
+      			</Link>
+    			<Link to="/about" className="nav-link">About</Link>
+      			<Link to="/jobs" className="nav-link">Jobs</Link>
+    		</div>
+    	</div>	
+		<div className="right-align nav-item">
+			<ul>
+				<li>List item</li>
+				<li>List item</li>
+			</ul>
+		</div>
     </nav>
   );
 };

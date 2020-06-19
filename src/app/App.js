@@ -9,9 +9,7 @@ class App extends Component {
       <div className="App">
       	<NavBar />
 
-        <div className="App-header">
-          <RoutesContainer />
-        </div>
+        <RoutesContainer />
 
         <Footer />
 
