@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import RoutesContainer from "../components/routes/RoutesContainer";
-import { NavBar, Footer } from "../components/containers";
+import { NavBar } from "../components/containers";
 
 class App extends Component {
   render() {
@@ -13,7 +13,6 @@ class App extends Component {
           <RoutesContainer />
         </div>
       
-        <Footer />
       </div>
     );
   }  

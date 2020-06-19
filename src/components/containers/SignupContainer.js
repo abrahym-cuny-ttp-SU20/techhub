@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { SignupView } from "../views";
+import { SignupPageView } from "../views";
 import { connect } from "react-redux";
 import { userSignupThunk } from "../../thunks";
 
@@ -27,7 +27,7 @@ class SignupContainer extends Component {
 
   render() {
     return (
-      <SignupView
+      <SignupPageView
         {...this.state}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
