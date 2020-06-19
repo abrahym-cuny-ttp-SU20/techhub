@@ -15,7 +15,7 @@ const HomePageView = (props) => {
             <div className="content-container">
                 <div className="content">
                     <div className="left-align image-container">
-                        <img src="#" />
+                        <img src="https://via.placeholder.com/150" alt="placeholder"/>
                     </div>
                     <div className="right-align text-container">
                         <h3>Use it anywhere</h3>
@@ -30,7 +30,7 @@ const HomePageView = (props) => {
                         <p>One link that directs your audience to all your content</p>
                     </div>
                     <div className="right-align image-container">
-                        <img src="#" />
+                        <img src="https://via.placeholder.com/150" alt="placeholder"/>
                     </div>
                 </div>
             </div>  
