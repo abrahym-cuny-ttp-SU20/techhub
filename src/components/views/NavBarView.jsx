@@ -15,8 +15,8 @@ const NavBarView = (props) => {
     	</div>	
     	<div className="right-align nav-item">
     		<ul>
-    			<li>List item</li>
-    			<li>List item</li>
+    			<li>Login</li>
+    			<li>Signup</li>
     		</ul>
     	</div>
     </nav>

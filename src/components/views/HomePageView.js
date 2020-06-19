@@ -20,17 +20,27 @@ const HomePageView = (props) => {
                     <div className="right-align text-container">
                         <h3>Use it anywhere</h3>
                         <br />
-                        <p>One link that directs your audience to all your content</p>
+                        <p>One link that directs your audience to all your content for their consumption. </p>
                     </div>
                 </div>
                 <div className="content">
                     <div className="left-align text-container">
                         <h3>Easily managed</h3>
                         <br />
-                        <p>One link that directs your audience to all your content</p>
+                        <p>Creating a Techhub takes seconds to setup. Explore all the websites you can connect.</p>
                     </div>
                     <div className="right-align image-container">
                         <img src="https://via.placeholder.com/150" alt="placeholder"/>
+                    </div>
+                </div>
+                <div className="content">
+                    <div className="left-align image-container">
+                        <img src="https://via.placeholder.com/150" alt="placeholder"/>
+                    </div>
+                    <div className="right-align text-container">
+                        <h3>Jobs Board</h3>
+                        <br />
+                        <p>Connect with employers using one singular link that directly connects them to your professional streams.</p>
                     </div>
                 </div>
             </div>  
