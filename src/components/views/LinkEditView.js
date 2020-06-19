@@ -2,7 +2,7 @@ import React from "react";
 import { Paper, Switch } from "@material-ui/core";
 import { DeleteForeverIcon } from "@material-ui/icons";
 
-const LinkView = (props) => {
+const LinkEditView = (props) => {
   return (
     <Paper className="link-container">
       <div className="logo-img">
@@ -20,11 +20,11 @@ const LinkView = (props) => {
         <div className="link-enable-switch">
           <Switch name="checkedB" color="primary" />
         </div>
-          <div className="delete-link-button">
-              <DeleteForeverIcon color="secondary"/>
-          </div>
+        <div className="delete-link-button">
+          <DeleteForeverIcon color="secondary" />
+        </div>
       </div>
     </Paper>
   );
 };
-export default LinkView;
+export default LinkEditView;
