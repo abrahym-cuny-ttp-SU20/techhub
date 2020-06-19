@@ -27,6 +27,7 @@ class LoginContainer extends Component {
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(ownProps);
   return {
     login: (loginCred) => dispatch(loginThunk(loginCred,ownProps)),
   };

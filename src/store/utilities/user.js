@@ -42,8 +42,6 @@ const userLogout = () => {
 
 /**
  * THUNK CREATORS
- * Purpose: Functions that require external resources are done here.
- * Called in StudentsContainer and passed into dispatch
  */
 //For testing purposes
 export const fetchUserThunk = (id) => (dispatch) => {
