@@ -29,9 +29,6 @@ export const fetchUserThunk = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-
-
-//Still working on
 export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
   return axios
     .post(`/api/users/signup`, newUser)
@@ -41,6 +38,7 @@ export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
 
 /**
  * REDUCER
