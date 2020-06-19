@@ -3,8 +3,7 @@
 export { default as HomePage } from "./HomePageContainer";
 export { default as AboutPage } from "./AboutPageContainer";
 export { default as JobsPage } from "./JobsPageContainer";
-// export { default as LoginPage} from "./LoginPage";
-// export { default as RegisterPage} from "./RegisterPage";
+export { default as LoginPage} from "./LoginContainer.js";
+export { default as SignupPage} from "./SignupContainer";
 
 export { default as NavBar } from "./NavBarContainer";
-export { default as Footer } from "./FooterContainer";
