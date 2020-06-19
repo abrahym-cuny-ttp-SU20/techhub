@@ -7,16 +7,19 @@ import {logoutThunk} from "../../thunks";
 import { withRouter } from "react-router-dom";
 
 class NavBarContainer extends Component {
-
-
   handleLogout = () => {
-    console.log("logout method ran")
+    console.log("logout method ran");
     this.props.logout(this.props.history);
-  }
+  };
 
   render() {
     console.log(this.props);
-    return <NavBarView handleLogout={this.handleLogout} isLoggedIn={this.props.authenticated}/>;
+    return (
+      <NavBarView
+        handleLogout={this.handleLogout}
+        isLoggedIn={this.props.authenticated}
+      />
+    );
   }
 }
 const mapStateToProps = (state) => {
