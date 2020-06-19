@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserProfileView = (props) => {
+const UserProfilePageView = (props) => {
   return (
       <div className="page">
         <div className="user-details">
@@ -21,4 +21,4 @@ const UserProfileView = (props) => {
   );
 };
 
-export default UserProfileView;
+export default UserProfilePageView;

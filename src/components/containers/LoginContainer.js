@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { LoginView } from "../views/";
+import { LoginPageView } from "../views/";
 import { loginThunk } from "../../thunks";
+
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class LoginContainer extends Component {
   };
 
   render() {
-    return <LoginView {...this.state} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
+    return <LoginPageView {...this.state} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />;
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
