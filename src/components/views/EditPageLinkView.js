@@ -1,27 +1,42 @@
 import React from "react";
-import { Paper, Switch } from "@material-ui/core";
+import { Paper, Switch, Input, Tooltip  } from "@material-ui/core";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import SaveIcon from '@material-ui/icons/Save';
+import './styles/EditPageLinkView.css'
 
 const EditPageLinkView = (props) => {
+
+    const handleChange = (e) => {
+        props.handleChange(e,props.id);
+    }
+
+
   return (
-    <Paper className="link-container">
+    <Paper className="pageLink-container" elevation={2}>
       <div className="logo-img">
-        <img src="https://via.placeholder.com/150" alt="" />
+        <img src={props.imageURL} alt="" />
       </div>
-      <div className="link-inputs">
-        <div className="link-title-container">
-          <input type="text" placeholder="Enter title" />
+      <div className="pageLink-inputs">
+        <div className="pageLink-title-container">
+            <Input placeholder="Enter Title" value={props.title} name="title" onChange={handleChange} disableUnderline={true} inputProps={{ 'aria-label': 'page link title' }} />
         </div>
-        <div className="link-url-container">
-          <input type="text" placeholder="http://url" />
+        <div className="pageLink-url-container">
+            <Input placeholder="http://url" value={props.link} name="link" onChange={handleChange} disableUnderline={true} inputProps={{ 'aria-label': 'page link url' }} />
         </div>
       </div>
       <div className="option-buttons">
-        <div className="link-enable-switch">
-          <Switch name="checkedB" color="primary" />
+        <div className="pageLink-enable-switch">
+            <Tooltip title="Enable/Disable Link">
+                <Switch name="checkedB" color="primary" />
+            </Tooltip>
         </div>
-        <div className="delete-link-button">
-          <DeleteForeverIcon color="secondary" />
+        <div className="pageLink-buttons">
+            <Tooltip title="Save Changes">
+                <SaveIcon color="primary" onClick={(e) => props.handleSavePageLink(e,props.id)}/>
+            </Tooltip>
+            <Tooltip title="Delete Permanently">
+                <DeleteForeverIcon color="secondary" />
+            </Tooltip>
         </div>
       </div>
     </Paper>

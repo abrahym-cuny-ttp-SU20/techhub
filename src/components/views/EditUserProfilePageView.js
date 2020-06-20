@@ -1,6 +1,16 @@
 import React from "react";
+import { EditPageLinkContainer } from "../containers";
 
-const EditUserProfilePageView = props => {
+const EditUserProfilePageView = (props) => {
+  const pageLinks = () =>
+    props.pageLinks.map((pageLink) => (
+      <EditPageLinkContainer
+        key={pageLink.id}
+        {...pageLink}
+        handleChange={props.handleChange}
+        handleSavePageLink={props.handleSavePageLink}
+      />
+    ));
   return (
     <div className="page">
       <div className="user-details">
@@ -13,7 +23,7 @@ const EditUserProfilePageView = props => {
       </div>
       <div className="links">
         <div className="add-link-button"></div>
-        <div>Link Component Goes here</div>
+        {pageLinks()}
       </div>
     </div>
   );
