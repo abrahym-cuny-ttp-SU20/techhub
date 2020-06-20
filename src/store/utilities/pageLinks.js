@@ -13,24 +13,24 @@ const DELETE_PAGE_LINK = "DELETE_PAGE_LINK";
  * ACTION CREATORS
  * Purpose: Functions that send an action to the reducer.
  */
-const fetchUserPageLinks = (links) => {
+const fetchUserPageLinks = (pageLinks) => {
   return {
     type: FETCH_USER_PAGE_LINKS,
-    payload: links,
+    payload: pageLinks,
   };
 };
 
-const editPageLink = (link) => {
+const editPageLink = (pageLink) => {
   return {
     type: EDIT_PAGE_LINK,
-    payload: link,
+    payload: pageLink,
   };
 };
 
-const addPageLink = (link) => {
+const addPageLink = (pageLink) => {
   return {
     type: ADD_PAGE_LINK,
-    payload: link,
+    payload: pageLink,
   };
 };
 
@@ -52,26 +52,26 @@ export const fetchUserPageLinksThunk = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const editPageLinkThunk = (link) => (dispatch) => {
+export const editPageLinkThunk = (pageLink) => (dispatch) => {
   return axios
-    .put(`/api/pageLinks/${link.id}`)
+    .put(`/api/pageLinks/${pageLink.id}`,pageLink)
     .then((res) => res.data)
-    .then((link) => dispatch(editPageLink(link)))
+    .then((pageLink) => dispatch(editPageLink(pageLink)))
     .catch((err) => console.log(err));
 };
 
-export const addPageLinkThunk = (link) => (dispatch) => {
+export const addPageLinkThunk = (pageLink) => (dispatch) => {
   return axios
-    .post(`/api/pageLinks`, link)
+    .post(`/api/pageLinks`, pageLink)
     .then((res) => res.data)
-    .then((link) => dispatch(addPageLink(link)))
+    .then((pageLink) => dispatch(addPageLink(pageLink)))
     .catch((err) => console.log(err));
 };
 
 export const deletePageLinkThunk = (id) => (dispatch) => {
   return axios
     .delete(`/api/pageLinks/${id}`)
-    .then(() => dispatch(deletePageLink(id)))
+    .then(dispatch(deletePageLink(id)))
     .catch((err) => console.log(err));
 };
 
@@ -89,7 +89,7 @@ const reducer = (state = [], action) => {
     case ADD_PAGE_LINK:
       return [...state, action.payload];
     case DELETE_PAGE_LINK:
-      return state.filter((link) => link.id !== action.payload.id);
+      return state.filter((pageLink) => pageLink.id !== action.payload.id);
     default:
       return state;
   }
