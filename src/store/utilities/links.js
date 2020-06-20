@@ -46,7 +46,7 @@ const deletePageLink = (id) => {
  */
 export const fetchUserLinksThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/links/${id}`)
+    .get(`/api/links/users/${id}`)
     .then((res) => res.data)
     .then((links) => dispatch(fetchUserLinks(links)))
     .catch((err) => console.log(err));
