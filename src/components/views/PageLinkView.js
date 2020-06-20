@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Typography } from "@material-ui/core";
 
-const LinkView = (props) => {
+const PageLinkView = (props) => {
   return (
     <Paper className="page-link-container" onClick={()=>window.open(props.linkDetails.link,"_blank")}>
       <div className="logo-img">
@@ -14,4 +14,4 @@ const LinkView = (props) => {
   );
 };
 
-export default LinkView;
+export default PageLinkView;

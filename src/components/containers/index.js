@@ -7,5 +7,5 @@ export { default as LoginPage } from "./LoginContainer.js";
 export { default as SignupPage } from "./SignupContainer";
 export { default as EditUserProfilePage } from "./EditUserProfilePageContainer";
 export { default as NavBar } from "./NavBarContainer";
-export { default as LinkEditContainer } from "./LinkEditContainer";
-export { default as LinkContainer } from "./LinkContainer"
+export { default as EditPageLinkContainer } from "./EditPageLinkContainer";
+export { default as PageLinkContainer } from "./PageLinkContainer"

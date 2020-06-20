@@ -2,7 +2,7 @@ import React from "react";
 import { Paper, Switch } from "@material-ui/core";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-const LinkEditView = (props) => {
+const EditPageLinkView = (props) => {
   return (
     <Paper className="link-container">
       <div className="logo-img">
@@ -27,4 +27,4 @@ const LinkEditView = (props) => {
     </Paper>
   );
 };
-export default LinkEditView;
+export default EditPageLinkView;

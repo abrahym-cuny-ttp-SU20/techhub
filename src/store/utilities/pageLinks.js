@@ -13,7 +13,7 @@ const DELETE_PAGE_LINK = "DELETE_PAGE_LINK";
  * ACTION CREATORS
  * Purpose: Functions that send an action to the reducer.
  */
-const fetchUserLinks = (links) => {
+const fetchUserPageLinks = (links) => {
   return {
     type: FETCH_USER_PAGE_LINKS,
     payload: links,
@@ -44,17 +44,17 @@ const deletePageLink = (id) => {
 /**
  * THUNK CREATORS
  */
-export const fetchUserLinksThunk = (id) => (dispatch) => {
+export const fetchUserPageLinksThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/links/users/${id}`)
+    .get(`/api/pageLinks/users/${id}`)
     .then((res) => res.data)
-    .then((links) => dispatch(fetchUserLinks(links)))
+    .then((links) => dispatch(fetchUserPageLinks(links)))
     .catch((err) => console.log(err));
 };
 
 export const editPageLinkThunk = (link) => (dispatch) => {
   return axios
-    .put(`/api/links/${link.id}`)
+    .put(`/api/pageLinks/${link.id}`)
     .then((res) => res.data)
     .then((link) => dispatch(editPageLink(link)))
     .catch((err) => console.log(err));
@@ -62,7 +62,7 @@ export const editPageLinkThunk = (link) => (dispatch) => {
 
 export const addPageLinkThunk = (link) => (dispatch) => {
   return axios
-    .post(`/api/links`, link)
+    .post(`/api/pageLinks`, link)
     .then((res) => res.data)
     .then((link) => dispatch(addPageLink(link)))
     .catch((err) => console.log(err));
@@ -70,7 +70,7 @@ export const addPageLinkThunk = (link) => (dispatch) => {
 
 export const deletePageLinkThunk = (id) => (dispatch) => {
   return axios
-    .delete(`/api/links/${id}`)
+    .delete(`/api/pageLinks/${id}`)
     .then(() => dispatch(deletePageLink(id)))
     .catch((err) => console.log(err));
 };
@@ -89,7 +89,7 @@ const reducer = (state = [], action) => {
     case ADD_PAGE_LINK:
       return [...state, action.payload];
     case DELETE_PAGE_LINK:
-      return state.filter((link)=> link.id !== action.payload.id);
+      return state.filter((link) => link.id !== action.payload.id);
     default:
       return state;
   }

@@ -8,5 +8,5 @@ export { default as JobsPageView } from "./JobsPageView";
 export { default as LoginPageView } from "./LoginView";
 export { default as SignupPageView } from "./SignupView";
 export { default as EditUserProfilePageView } from "./EditUserProfilePageView";
-export { default as LinkEditView } from "./LinkEditView";
-export { default as LinkView } from "./LinkView";
+export { default as EditPageLinkView } from "./EditPageLinkView";
+export { default as PageLinkView } from "./PageLinkView";

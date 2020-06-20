@@ -2,32 +2,45 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { EditUserProfilePageView } from "../views";
 import { connect } from "react-redux";
-import { fetchUserThunk } from "../../thunks";
+import { updateUserSessionThunk, fetchUserPageLinksThunk } from "../../thunks";
 
 class EditUserProfilePageContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      links: [],
+    };
+  }
   componentDidMount() {
-    const { id } = this.props.history.match.params;
-    this.props.fetchUser(id);
+    this.setState({ user: this.props.user });
+    this.props
+      .fetchUserPageLinks(this.props.user.id)
+      .then(({ payload }) => this.setState({ links: payload }));
   }
 
+  handleChange = (e) => {};
+
   render() {
-    return <EditUserProfilePageView links={this.props.links} />;
+    return <EditUserProfilePageView links={this.props.user.links} />;
   }
 }
+
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
+    user: state.session.user,
+    links: state.links,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (id) => dispatch(fetchUserThunk(id)),
+    updateUserSession: (user) => dispatch(updateUserSessionThunk(user)),
+    fetchUserPageLinks: (id) => dispatch(fetchUserPageLinksThunk(id)),
   };
 };
 
 EditUserProfilePageContainer.propTypes = {
-  fetchUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default connect(
