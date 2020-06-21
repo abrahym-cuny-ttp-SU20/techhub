@@ -89,7 +89,7 @@ const reducer = (state = [], action) => {
     case ADD_PAGE_LINK:
       return [...state, action.payload];
     case DELETE_PAGE_LINK:
-      return state.filter((pageLink) => pageLink.id !== action.payload.id);
+      return state.filter((pageLink) => pageLink.id !== action.payload);
     default:
       return state;
   }
