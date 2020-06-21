@@ -27,6 +27,10 @@
     margin: 0;
 }
 
+.add-skill-btn {
+    margin: 10px 0;
+}
+
 .add-link-button {
     width: 100%;
 }
