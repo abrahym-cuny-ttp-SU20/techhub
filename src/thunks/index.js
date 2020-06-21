@@ -2,3 +2,4 @@
 export * from "../store/utilities/user";
 export * from "../store/utilities/session";
 export * from "../store/utilities/pageLinks";
+export * from "../store/utilities/skills";
