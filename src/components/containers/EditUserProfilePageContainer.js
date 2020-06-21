@@ -8,28 +8,18 @@ import {
   editPageLinkThunk,
   deletePageLinkThunk,
   addPageLinkThunk,
+  addUserSkillThunk,
+  removeUserSkillThunk,
+  fetchUserSkillsThunk,
 } from "../../thunks";
 
 class EditUserProfilePageContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      skillInput: '',
+      skillInput: "",
       pageLinks: [],
-      skills: [
-        {
-          id: 1,
-          name: "React",
-        },
-        {
-          id: 2,
-          name: "Angular",
-        },
-        {
-          id: 3,
-          name: "Javascript",
-        },
-      ],
+      skills: [],
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,6 +29,9 @@ class EditUserProfilePageContainer extends Component {
     this.props
       .fetchUserPageLinks(this.props.user.id)
       .then(({ payload }) => this.setState({ pageLinks: payload }));
+    this.props
+      .fetchUserSkills(this.props.user.id)
+      .then(({ payload }) => this.setState({ skills: payload }));
   }
 
   handleChange = (e, id) => {
@@ -52,8 +45,8 @@ class EditUserProfilePageContainer extends Component {
   };
 
   handleSkillChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleDeletePageLink = (e, id) => {
     this.props
@@ -63,11 +56,10 @@ class EditUserProfilePageContainer extends Component {
   };
 
   handleDeleteSkill = (skillToDelete) => () => {
-    this.setState((state) => {
-      return {
-        skills: state.skills.filter((skill) => skill.id !== skillToDelete.id),
-      };
-    });
+    this.props
+      .removeUserSkill(skillToDelete.id, this.state.user.id)
+      .then(() => this.props.fetchUserSkills(this.props.user.id))
+      .then(({ payload }) => this.setState({ skills: payload }));
   };
 
   handleSavePageLink = (e, id) => {
@@ -97,15 +89,12 @@ class EditUserProfilePageContainer extends Component {
 
   handleAddSkill = (e) => {
     const skill = {
-      id: 5,
       name: this.state.skillInput,
     };
-
-    this.setState((state) => {
-      return {
-        skills: [skill,...state.skills],
-      };
-    });
+    this.props
+      .addUserSkill(skill, this.state.user.id)
+      .then(() => this.props.fetchUserSkills(this.props.user.id))
+      .then(({ payload }) => this.setState({ skills: payload }));
   };
 
   render() {
@@ -130,6 +119,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.session.user,
     pageLinks: state.pageLinks,
+    skills: state.skills,
   };
 };
 
@@ -140,6 +130,9 @@ const mapDispatchToProps = (dispatch) => {
     editPageLink: (pageLink) => dispatch(editPageLinkThunk(pageLink)),
     deletePageLink: (id) => dispatch(deletePageLinkThunk(id)),
     addPageLink: (pageLink) => dispatch(addPageLinkThunk(pageLink)),
+    fetchUserSkills: (id) => dispatch(fetchUserSkillsThunk(id)),
+    addUserSkill: (skill, userId) => dispatch(addUserSkillThunk(skill, userId)),
+    removeUserSkill: (id, userId) => dispatch(removeUserSkillThunk(id, userId)),
   };
 };
 
@@ -149,6 +142,9 @@ EditUserProfilePageContainer.propTypes = {
   editPageLink: PropTypes.func.isRequired,
   deletePageLink: PropTypes.func.isRequired,
   addPageLink: PropTypes.func.isRequired,
+  fetchUserSkills: PropTypes.func.isRequired,
+  addUserSkill: PropTypes.func.isRequired,
+  removeUserSkill: PropTypes.func.isRequired,
 };
 
 export default connect(
