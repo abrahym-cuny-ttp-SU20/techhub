@@ -10,13 +10,21 @@ const NavBarView = (props) => {
       				<img src="#" alt="Logo"/>
       			</Link>
     			<Link to="/about" className="nav-link">About</Link>
-      			<Link to="/jobs" className="nav-link">Jobs</Link>
+      		<Link to="/jobs" className="nav-link">Jobs</Link>
     		</div>
     	</div>	
     	<div className="right-align nav-item">
     		<ul>
-    			<li>Login</li>
-    			<li>Signup</li>
+    			<li className="nav-link">
+            <Link to="/login" className="reg-btn login-btn">
+              <button>Log In</button>
+            </Link
+          ></li>
+    			<li className="nav-link">
+            <Link to="/signup" className="reg-btn">
+              <button>Sign Up</button>
+            </Link>
+          </li>
     		</ul>
     	</div>
     </nav>

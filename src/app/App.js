@@ -3,6 +3,9 @@ import './App.css';
 import RoutesContainer from "../components/routes/RoutesContainer";
 import { NavBar, Footer } from "../components/containers";
 
+// get our fontawesome imports
+
+
 class App extends Component {
   render() {
     return (

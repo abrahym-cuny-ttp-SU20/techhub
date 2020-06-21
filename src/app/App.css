@@ -16,6 +16,10 @@ ul > li {
   list-style: none;
 }
 
+button:focus{
+  outline: none;
+}
+
 .image-container > img{
   width: 100%;
   height: auto;
@@ -43,8 +47,40 @@ nav {
   display: inline-flex;
 }
 
+.nav-item ul .nav-link {
+  padding: 1em 0.5em;
+}
+
 .nav-link {
   padding: 1em 2em;
+}
+
+.reg-btn > button {
+  color: #fff;
+  text-transform: uppercase;
+  background: #1C800F;
+  padding: 10px;
+  border: 2px solid #1C800F;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.reg-btn > button:hover{
+  color: #494949;
+  border-radius: 50px;
+  border-color: #494949;
+  transition: all 0.3s ease 0s;
+}
+
+.reg-btn > button:focus {
+  text-decoration: underline;
+}
+
+.reg-btn.login-btn > button {
+  background: transparent;
+  border: none;
+  color: #000;
 }
 
 .landing-container {
@@ -70,21 +106,20 @@ nav {
 .landing_cta-btn {
   margin-top: 50px;
   font-size: calc(8px + 1vmin);
-  color: #494949;
+  color: #282c34;
   text-transform: uppercase;
   text-decoration: none;
   background: #ffffff;
   padding: 1em;
-  border: 4px solid #494949;
   display: inline-block;
   transition: all 0.4s ease 0s;
 }
 
 .landing_cta-btn:hover {
-  color: #ffffff;
-  background: #f6b93b;
-  border-color: #f6b93b;
+  color: #fff;
+  background: #626B7F;
   transition: all 0.4s ease 0s;
+  text-shadow: 0px 0px 5px #444;
 }
 
 .content-container {
@@ -123,11 +158,28 @@ nav {
 }
 
 .footer-container{
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
+  background-color: #282c34;
 }
+
+
+/* Targets the fontawesome Icons, rendered as an SVG*/
+.right-align.nav-item ul li svg {
+  height: auto;
+  margin: 5px;
+  color: #D8E6E9;
+  background-color: transparent;
+
+}
+
+.right-align.nav-item ul li svg:hover {
+  color: #626B7F;
+  text-shadow: 0px 0px 5px #FFFFFF;
+}
+
 
