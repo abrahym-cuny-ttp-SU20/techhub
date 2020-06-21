@@ -8,11 +8,11 @@ class App extends Component {
     return (
       <div className="App">
       	<NavBar />
-        
+
         <div className="App-header">
           <RoutesContainer />
         </div>
-        
+
         <Footer />
       </div>
     );

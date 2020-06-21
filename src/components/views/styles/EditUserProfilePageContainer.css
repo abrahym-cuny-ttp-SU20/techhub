@@ -1,0 +1,49 @@
+.page {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    width:60%;
+    padding: 15px;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 1px;
+    margin: 0;
+}
+
+.add-skill-btn {
+    margin: 10px 0;
+}
+
+.add-link-button {
+    width: 100%;
+}
+.image-cropper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.profile-pic {
+    display: inline;
+    height: 100%;
+    width: 100%;
+}
+

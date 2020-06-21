@@ -7,7 +7,7 @@ const HomePageView = (props) => {
             	<div className="">
             		<h1>The One Stop Shop <span>for Tech Heads</span></h1>
 
-            		<div class="button_cont" align="center">
+            		<div className="button_cont" align="center">
                         <a className="landing_cta-btn" href="add-website-here" target="_blank" rel="nofollow noopener">Sign Up for Free</a>
                     </div>
             	</div>
