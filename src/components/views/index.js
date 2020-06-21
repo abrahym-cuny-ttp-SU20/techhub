@@ -1,5 +1,6 @@
 // Mini Components
 export { default as NavBarView } from "./NavBarView";
+export { default as FooterView } from "./FooterView";
 
 // Componenet Routes
 export { default as HomePageView } from "./HomePageView";

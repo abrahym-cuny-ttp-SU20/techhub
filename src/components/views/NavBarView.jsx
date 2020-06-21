@@ -2,28 +2,56 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavBarView = (props) => {
-    console.log(typeof props.handleLogout)
   return (
     <nav>
-      	<Link to="/" className="nav-link">Home</Link>
-      	<Link to="/about" className="nav-link">About</Link>
-      	<Link to="/jobs" className="nav-link">Jobs</Link>
-        {
-            props.isLoggedIn ?
-                (
-                    <>
-                        <Link to="/edit" className="nav-link">Profile</Link>
-                        <button type="button" onClick={props.handleLogout}>Logout</button>
-                    </>
-                ) :
-                (
-                    <>
-                        <Link to="/login" className="nav-link">Login</Link>
-                        <Link to="/signup" className="nav-link">Signup</Link>
-                    </>
-                )
-        }
-
+      <div className="left-align nav-item">
+        <div className="image-container">
+          <Link to="/" className="nav-link">
+            <img src="#" alt="Logo" />
+          </Link>
+          <Link to="/about" className="nav-link">
+            About
+          </Link>
+          <Link to="/jobs" className="nav-link">
+            Jobs
+          </Link>
+        </div>
+      </div>
+      <div className="right-align nav-item">
+        <ul>
+          {props.isLoggedIn ? (
+            <>
+              <li className="nav-link">
+                <Link to="/edit" className="reg-btn login-btn">
+                  <button>Profile</button>
+                </Link>
+              </li>
+              <li className="nav-link">
+                <Link
+                  to="/logout"
+                  onClick={props.handleLogout}
+                  className="reg-btn"
+                >
+                  <button>Logout</button>
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-link">
+                <Link to="/login" className="reg-btn login-btn">
+                  <button>Log In</button>
+                </Link>
+              </li>
+              <li className="nav-link">
+                <Link to="/signup" className="reg-btn">
+                  <button>Sign Up</button>
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 };
