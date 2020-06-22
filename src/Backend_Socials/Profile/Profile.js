@@ -33,6 +33,13 @@ export default function Profile() {
         textAlign: 'center',
         backgroundColor: 'rgb(0,255,255,0.3)'
     }
+    let socialResultStyle={
+        display: 'flex',  
+        justifyContent:'center', 
+        alignItems:'center',
+        textAlign: 'center',
+        backgroundColor: 'rgb(0,255,255,0.3)'
+    }
     let googleButtonStyle={
         borderRadius: '100%',
         fontSize: '6px'
@@ -107,6 +114,9 @@ export default function Profile() {
                             <h5 >Socials</h5>
                             <Info />
                             <Container>
+                                <div>
+
+                                </div>
                                 <Row>
                                     <Col>
                                     <OverlayTrigger trigger="click" placement="top" overlay={addPopover}>
