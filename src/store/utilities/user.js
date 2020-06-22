@@ -5,8 +5,9 @@ if(process.env.NODE_ENV === "development"){
   BASE_URL = "http://localhost:3000";
 }
 else {
-  BASE_URL = process.env.REACT_APP_API_URL;
+  BASE_URL = "https://techhub-backend.herokuapp.com";
 }
+
 /**
  *  ACTION TYPE
  *  Purpose: Gets used by the reducer to run a payload
@@ -29,6 +30,7 @@ const fetchUser = (user) => {
  */
 //For testing purposes
 export const fetchUserThunk = (id) => (dispatch) => {
+  console.log(BASE_URL);
   return axios
     .get(`${BASE_URL}/api/users/${id}`)
     .then((res) => res.data)
@@ -37,6 +39,7 @@ export const fetchUserThunk = (id) => (dispatch) => {
 };
 
 export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
+  console.log(BASE_URL);
   return axios
     .post(`${BASE_URL}/api/users/signup`, newUser)
     .then((res) => res.data)
