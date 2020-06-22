@@ -1,11 +1,19 @@
 import axios from "axios";
 import { sessionService } from "redux-react-session";
 
+let BASE_URL;
+if(process.env.NODE_ENV === "development"){
+  BASE_URL = "http://localhost:3000";
+}
+else {
+  BASE_URL = process.env.REACT_APP_API_URL;
+}
+
 /**
  * THUNK CREATORS
  */
 export const loginThunk = (user, ownProps) => () => {
-  return axios.post(`/api/users/login`, user).then((res) => {
+  return axios.post(`${BASE_URL}/api/users/login`, user).then((res) => {
     const { id } = res.data.id;
     sessionService
       .saveSession({ id })
@@ -22,7 +30,7 @@ export const loginThunk = (user, ownProps) => () => {
 export const logoutThunk = (history) => {
   return () => {
     return axios
-      .post(`/api/users/logout`)
+      .post(`${BASE_URL}/api/users/logout`)
       .then(() => {
         sessionService
           .deleteSession()
@@ -38,7 +46,7 @@ export const logoutThunk = (history) => {
 
 export const updateUserSessionThunk = (user) => () => {
   return axios
-    .put(`/api/users`, user)
+    .put(`${BASE_URL}/api/users`, user)
     .then((res) => {
       sessionService.saveUser(res.data);
     })

@@ -1,5 +1,11 @@
 import axios from "axios";
-
+let BASE_URL;
+if(process.env.NODE_ENV === "development"){
+  BASE_URL = "http://localhost:3000";
+}
+else {
+  BASE_URL = process.env.REACT_APP_API_URL;
+}
 /**
  *  ACTION TYPE
  *  Purpose: Gets used by the reducer to run a payload
@@ -46,7 +52,7 @@ const deletePageLink = (id) => {
  */
 export const fetchUserPageLinksThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/pageLinks/users/${id}`)
+    .get(`${BASE_URL}/api/pageLinks/users/${id}`)
     .then((res) => res.data)
     .then((links) => dispatch(fetchUserPageLinks(links)))
     .catch((err) => console.log(err));
@@ -54,7 +60,7 @@ export const fetchUserPageLinksThunk = (id) => (dispatch) => {
 
 export const editPageLinkThunk = (pageLink) => (dispatch) => {
   return axios
-    .put(`/api/pageLinks/${pageLink.id}`,pageLink)
+    .put(`${BASE_URL}/api/pageLinks/${pageLink.id}`,pageLink)
     .then((res) => res.data)
     .then((pageLink) => dispatch(editPageLink(pageLink)))
     .catch((err) => console.log(err));
@@ -62,7 +68,7 @@ export const editPageLinkThunk = (pageLink) => (dispatch) => {
 
 export const addPageLinkThunk = (pageLink) => (dispatch) => {
   return axios
-    .post(`/api/pageLinks`, pageLink)
+    .post(`${BASE_URL}/api/pageLinks`, pageLink)
     .then((res) => res.data)
     .then((pageLink) => dispatch(addPageLink(pageLink)))
     .catch((err) => console.log(err));
@@ -70,7 +76,7 @@ export const addPageLinkThunk = (pageLink) => (dispatch) => {
 
 export const deletePageLinkThunk = (id) => (dispatch) => {
   return axios
-    .delete(`/api/pageLinks/${id}`)
+    .delete(`${BASE_URL}/api/pageLinks/${id}`)
     .then(dispatch(deletePageLink(id)))
     .catch((err) => console.log(err));
 };
