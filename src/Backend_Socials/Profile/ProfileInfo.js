@@ -1,12 +1,9 @@
+/*
+  This file will display all the infromation from the database
+*/
 import React, { useState, useEffect} from 'react';
 
-const ShowInfo=(props)=>{
-    // divStyle = {
-    //     backgroundColor: '#00FFFF'
-    //   };
-
-
-    
+const ShowInfo=(props)=>{  
       const [socialinfo, setSocialInfo] = useState(false);
       useEffect(()=>{
         getSocialInfo();
@@ -67,7 +64,13 @@ const ShowInfo=(props)=>{
           
       }  
       function updateHow(){
-        props.auto? createSocialInfo:manCreateSocialInfo
+        if(props.isLoggedIn){
+          createSocialInfo()
+          props.isLoggedIn=false;
+        }
+        else{
+          manCreateSocialInfo()
+        }
       }
     return(
       <div>

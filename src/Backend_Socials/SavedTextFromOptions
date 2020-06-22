@@ -1,25 +1,148 @@
 //This is the profile page
-
-// import React, { Component } from 'react';
-import React from "react";
+import React, { Component } from 'react';
 //import GoogleLogin from 'react-google-login';
 //import FacebookLogin from 'react-facebook-login';
 //import Button from './Buttons';
 //import Info from './ShowInfo'
-import ProfileNav from './ProfileNav'
+import Navbar from '../components/views/NavBarView';
 require('dotenv').config();
+
+// export default class Options extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state={
+//         isLoggedIn:false,
+//         googleEmail:'',
+//         googleId:'',
+//         googlrImageUrl:'',
+//         social:'',
+//         username:'',
+//         facebookUserID:'',
+//         auto:false
+//     };
+//     this.responseGoogle = this.responseGoogle.bind(this);
+//     this.responseFacebook = this.responseFacebook.bind(this);
+// }
+//     responseGoogle = (response) => {
+//         this.setState({
+//             isLoggedIn: true,
+//             username: response.profileObj.email,
+//             googleId: response.profileObj.googleId,
+//             googlrImageUrl: response.profileObj.googleImageUrl,
+//             social:'Google'
+//         });
+//         // const assignAuto=(
+//         //     this.setState({
+//         //         auto:true
+//         //     })
+//         // )
+//         // const data = {
+//         //     isGoogleLoggedIn,
+//         //     username,
+//         //     googleId,
+//         //     googlrImageUrl,
+//         //     social,
+//         //     auto
+//         // };
+//         // console.log(this.responseFacebook.test);
+        
+//     }
+//     responseFacebook = (response) => {
+//         this.setState({
+//             isLoggedIn: true,
+//             username:response.name,
+//             facebookUserID:response.id,
+//             social:'Facebook'
+//         });
+
+//         // const data = {
+//         //     isFacebookLoggedIn: true,
+//         //     username:response.name,
+//         //     facebookUserID:response.id,
+//         //     social:'Facebook',
+//         //     auto:true
+//         // }
+//     }
+//     divStyle = {
+//         backgroundColor: '#00FFFF'
+//       };
+
+//     render() {
+//         let ggContent;
+//         if (this.state.isLoggedIn) {
+//             ggContent = (
+//               <div style={this.divStyle}>
+//                 <p>imageUrl: {this.state.googlrImageUrl} </p>
+//                 <p>Email: {this.state.username}</p>
+//                 {/* <Info /> */}
+//               </div>
+//             )
+//         } else {
+//             ggContent = (
+//                 <div>
+//                 <GoogleLogin
+//                     clientId={process.env.REACT_APP_Google_ID}
+//                     buttonText="Login"
+//                     onSuccess={this.responseGoogle}
+//                     onFailure={this.responseGoogle}
+//                     cookiePolicy={'single_host_origin'}
+//                 />,
+//                 </div>
+//             );
+//         }
+//         let fbContent;        
+//         if (this.state.isLoggedIn) {
+//             fbContent = (
+//                 <div style={this.divStyle}>
+//                 <p>Facebook Name: {this.state.username} </p>
+//                 </div>
+//             )
+//         } else {
+//             fbContent = (
+//                 <div>
+//                 <FacebookLogin
+//                     appId={process.env.REACT_APP_Facebook_ID}
+//                     fields="name,email,picture"
+//                     callback={this.responseFacebook} 
+//                 />
+//                 </div>
+//             );
+//         }
+//        // </div>
+//        const googleInfo={
+//            if(isGoogleLoggedIn){
+//                return <Info {...this.responseGoogle}/>
+//            }
+//        }
+//        const facebookInfo={
+//             if(isFacebookLoggedIn){
+//                 return <Info {...this.responseFacebook}/>
+//             }
+//         }
+//         return (
+//             <div>
+//                 {ggContent}
+//                 {googleInfo}
+//                 {fbContent}
+//                 {facebookInfo}
+//                 {/* <Info storeState={storeState}/> */}
+//             </div>  
+            
+//         )
+//     }
+// }
 
 export default function Options() {
     return (
       <>
-        <ProfileNav  transparent />
+        <Navbar transparent />
         <main className="profile-page">
-          <section className="relative block" style={{ height: "5px" }}>
+          <section className="relative block" style={{ height: "500px" }}>
             <div
               className="absolute top-0 w-full h-full bg-center bg-cover"
               style={{
                 backgroundImage:
-                  'url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80")'
+                  "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')"
               }}
             >
               <span
@@ -31,9 +154,9 @@ export default function Options() {
               className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
               style={{ height: "70px", transform: "translateZ(0)" }}
             >
-              <svg
+              {/* <svg
                 className="absolute bottom-0 overflow-hidden"
-                xmlns="images_unsplash_com-photo-1499336315816-097655dcfbda.svg" 
+                xmlns="http://www.w3.org/2000/svg"
                 preserveAspectRatio="none"
                 version="1.1"
                 viewBox="0 0 2560 100"
@@ -44,7 +167,7 @@ export default function Options() {
                   className="text-gray-300 fill-current"
                   points="2560 0 2560 100 0 100"
                 ></polygon>
-              </svg>
+              </svg> */}
             </div>
           </section>
           <section className="relative py-16 bg-gray-300">
