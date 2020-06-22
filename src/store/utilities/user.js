@@ -1,5 +1,12 @@
 import axios from "axios";
 
+let BASE_URL;
+if(process.env.NODE_ENV === "development"){
+  BASE_URL = "http://localhost:3000";
+}
+else {
+  BASE_URL = process.env.REACT_APP_API_URL;
+}
 /**
  *  ACTION TYPE
  *  Purpose: Gets used by the reducer to run a payload
@@ -23,7 +30,7 @@ const fetchUser = (user) => {
 //For testing purposes
 export const fetchUserThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/users/${id}`)
+    .get(`${BASE_URL}/api/users/${id}`)
     .then((res) => res.data)
     .then((user) => dispatch(fetchUser(user)))
     .catch((err) => console.log(err));
@@ -31,7 +38,7 @@ export const fetchUserThunk = (id) => (dispatch) => {
 
 export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
   return axios
-    .post(`/api/users/signup`, newUser)
+    .post(`${BASE_URL}/api/users/signup`, newUser)
     .then((res) => res.data)
     .then(() => {
       ownProps.history.push("/");
