@@ -5,7 +5,7 @@ import './App.css';
 // import SignIn from '../components/views/LoginView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import ProfilePage from '../Backend_Socials/Profile/Profile';
-import Login from '../components/views/LoginView'
+import SignUp from '../components/views/SignupView'
 class App extends Component {
   render() {
     return (
@@ -16,7 +16,7 @@ class App extends Component {
           // <RoutesContainer /> 
           // <SignIn />
         <div>
-          <Login />
+          <SignUp />
           {/* <ProfilePage /> */}
         </div>
       

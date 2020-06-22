@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import '../../app/App.css';
+import { Router, Route } from "react-router-dom";
+import {useProfile} from '../../Backend_Socials/Profile/useProfile';
+import Profile from '../../Backend_Socials/Profile/Profile';
 import GoogleLogin  from 'react-google-login';
 //import ProfilePage from '../../Backend_Socials/Options';
 require('dotenv').config();
@@ -7,12 +10,13 @@ const SignupView = (props) => {
 // Declared a new state variable called "google"
 // This state varible will hold the google login response
 // The google login response is stored in a object called profileObj
-    const [google, setGoogle] = useState();
+    const [google, setGoogle] = useProfile({obj:{}});
     const responseGoogle = (response) => {
         console.log(response);
         //I am having trouble storing the profileObj
         //object in the state varible
         //it returns undefined every time
+
         setGoogle(response.profileObj);
         /*
           As of now protent that it works and it returns the following fields
@@ -29,7 +33,11 @@ const SignupView = (props) => {
         console.log({google});
         //After successfully storing/aceesing google login
         //it should send you to the profile page
-
+        return(
+          <Router>
+            <Route path="/Profile" exact component={Profile} />
+          </Router>
+        )
     }
     const divButtonStyle = {
         float: "left",

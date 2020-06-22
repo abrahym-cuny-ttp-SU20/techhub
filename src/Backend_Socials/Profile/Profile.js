@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Media from 'react-bootstrap/Media';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Infor from './ProfileInfo';
+import Info from './ProfileInfo';
 
 require('dotenv').config();
 
