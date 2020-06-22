@@ -46,7 +46,7 @@ const removeUserSkill = (id) => {
  */
 export const fetchUserSkillsThunk = (id) => (dispatch) => {
   return axios
-    .get(`${BASE_URL}/api/skills/users/${id}`)
+    .get(`${BASE_URL}/api/skills/users/${id}`, { crossdomain: true })
     .then((res) => res.data)
     .then((skills) => dispatch(fetchUserSkills(skills)))
     .catch((err) => console.log(err));
@@ -54,7 +54,7 @@ export const fetchUserSkillsThunk = (id) => (dispatch) => {
 
 export const addUserSkillThunk = (skill, userId) => (dispatch) => {
   return axios
-    .post(`${BASE_URL}/api/skills/users/${userId}`, skill)
+    .post(`${BASE_URL}/api/skills/users/${userId}`, skill, { crossdomain: true })
     .then((res) => res.data)
     .then((newSkill) => dispatch(addUserSkill(newSkill)))
     .catch((err) => console.log(err));
@@ -62,7 +62,7 @@ export const addUserSkillThunk = (skill, userId) => (dispatch) => {
 
 export const removeUserSkillThunk = (id, userId) => (dispatch) => {
   return axios
-    .delete(`${BASE_URL}/api/skills/${id}/users/${userId}`)
+    .delete(`${BASE_URL}/api/skills/${id}/users/${userId}`, { crossdomain: true })
     .then(dispatch(removeUserSkill(id)))
     .catch((err) => console.log(err));
 };

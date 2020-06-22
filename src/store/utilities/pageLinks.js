@@ -68,7 +68,7 @@ export const editPageLinkThunk = (pageLink) => (dispatch) => {
 
 export const addPageLinkThunk = (pageLink) => (dispatch) => {
   return axios
-    .post(`${BASE_URL}/api/pageLinks`, pageLink)
+    .post(`${BASE_URL}/api/pageLinks`, pageLink, { crossdomain: true })
     .then((res) => res.data)
     .then((pageLink) => dispatch(addPageLink(pageLink)))
     .catch((err) => console.log(err));
@@ -76,7 +76,7 @@ export const addPageLinkThunk = (pageLink) => (dispatch) => {
 
 export const deletePageLinkThunk = (id) => (dispatch) => {
   return axios
-    .delete(`${BASE_URL}/api/pageLinks/${id}`)
+    .delete(`${BASE_URL}/api/pageLinks/${id}`, { crossdomain: true })
     .then(dispatch(deletePageLink(id)))
     .catch((err) => console.log(err));
 };

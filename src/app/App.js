@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import RoutesContainer from "../components/routes/RoutesContainer";
 import { NavBar, Footer} from "../components/containers";

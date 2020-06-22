@@ -13,7 +13,7 @@ else {
  * THUNK CREATORS
  */
 export const loginThunk = (user, ownProps) => () => {
-  return axios.post(`${BASE_URL}/api/users/login`, user).then((res) => {
+  return axios.post(`${BASE_URL}/api/users/login`, user, { crossdomain: true }).then((res) => {
     const { id } = res.data.id;
     sessionService
       .saveSession({ id })
@@ -30,7 +30,7 @@ export const loginThunk = (user, ownProps) => () => {
 export const logoutThunk = (history) => {
   return () => {
     return axios
-      .post(`${BASE_URL}/api/users/logout`)
+      .post(`${BASE_URL}/api/users/logout`, { crossdomain: true })
       .then(() => {
         sessionService
           .deleteSession()
@@ -46,7 +46,7 @@ export const logoutThunk = (history) => {
 
 export const updateUserSessionThunk = (user) => () => {
   return axios
-    .put(`${BASE_URL}/api/users`, user)
+    .put(`${BASE_URL}/api/users`, user, { crossdomain: true })
     .then((res) => {
       sessionService.saveUser(res.data);
     })

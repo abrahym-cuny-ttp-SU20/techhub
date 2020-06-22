@@ -32,7 +32,7 @@ const fetchUser = (user) => {
 export const fetchUserThunk = (id) => (dispatch) => {
   console.log(BASE_URL);
   return axios
-    .get(`${BASE_URL}/api/users/${id}`)
+    .get(`${BASE_URL}/api/users/${id}`, { crossdomain: true })
     .then((res) => res.data)
     .then((user) => dispatch(fetchUser(user)))
     .catch((err) => console.log(err));
@@ -41,7 +41,7 @@ export const fetchUserThunk = (id) => (dispatch) => {
 export const userSignupThunk = (newUser, ownProps) => (dispatch) => {
   console.log(BASE_URL);
   return axios
-    .post(`${BASE_URL}/api/users/signup`, newUser)
+    .post(`${BASE_URL}/api/users/signup`, newUser, { crossdomain: true })
     .then((res) => res.data)
     .then(() => {
       ownProps.history.push("/");
