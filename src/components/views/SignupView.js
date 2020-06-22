@@ -1,12 +1,23 @@
-import React, {useState} from "react";
+import React, {Component} from "react";
 import '../../app/App.css';
 import { Router, Route } from "react-router-dom";
-import {useProfile} from '../../Backend_Socials/Profile/useProfile';
+// import {useProfile} from '../../Backend_Socials/Profile/useProfile';
 import Profile from '../../Backend_Socials/Profile/Profile';
 import GoogleLogin  from 'react-google-login';
 //import ProfilePage from '../../Backend_Socials/Options';
 require('dotenv').config();
-const SignupView = (props) => {
+
+
+class SignupView extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      email='',
+      social='',
+      imageUrl='',
+      socialId=''
+    }
+  }
 // Declared a new state variable called "google"
 // This state varible will hold the google login response
 // The google login response is stored in a object called profileObj
