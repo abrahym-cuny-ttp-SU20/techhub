@@ -12,7 +12,7 @@ class SignupView extends Component{
   constructor(props){
     super(props)
     this.state={
-      obj:{}
+      data:{}
     };
     this.responseGoogle=this.responseGoogle.bind(this);
   }
@@ -22,12 +22,12 @@ class SignupView extends Component{
 // render
     
     responseGoogle = (response) => {
-        console.log(response);
+        console.log(response.profileObj);
         //I am having trouble storing the profileObj
         //object in the state varible
         //it returns undefined every time
-
-        this.setState(response);
+        let obj={...response.profileObj};
+        this.setState({data:obj});
         /*
           As of now protent that it works and it returns the following fields
           -The name of the social media (Google)
@@ -40,7 +40,12 @@ class SignupView extends Component{
         // setSocialId(response.profileObj.googleId);
         // setImageUrl(response.profileObj.imageUrl);
         // setSocial('Google');
-        console.log(this.state.obj);
+        console.log(this.state.data);
+        // {this.props.firstName}
+        // {this.props.lastName}
+        // {this.props.email}
+        // {this.props.password}
+        // {this.props.handleChange}
         //After successfully storing/aceesing google login
         //it should send you to the profile page
         return(
