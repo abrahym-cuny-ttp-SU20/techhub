@@ -12,23 +12,22 @@ class SignupView extends Component{
   constructor(props){
     super(props)
     this.state={
-      email='',
-      social='',
-      imageUrl='',
-      socialId=''
-    }
+      obj:{}
+    };
+    this.responseGoogle=this.responseGoogle.bind(this);
   }
 // Declared a new state variable called "google"
 // This state varible will hold the google login response
 // The google login response is stored in a object called profileObj
-    const [google, setGoogle] = useProfile({obj:{}});
-    const responseGoogle = (response) => {
+// render
+    
+    responseGoogle = (response) => {
         console.log(response);
         //I am having trouble storing the profileObj
         //object in the state varible
         //it returns undefined every time
 
-        setGoogle(response.profileObj);
+        this.setState(response);
         /*
           As of now protent that it works and it returns the following fields
           -The name of the social media (Google)
@@ -41,7 +40,7 @@ class SignupView extends Component{
         // setSocialId(response.profileObj.googleId);
         // setImageUrl(response.profileObj.imageUrl);
         // setSocial('Google');
-        console.log({google});
+        console.log(this.state.obj);
         //After successfully storing/aceesing google login
         //it should send you to the profile page
         return(
@@ -50,42 +49,44 @@ class SignupView extends Component{
           </Router>
         )
     }
-    const divButtonStyle = {
+   divButtonStyle = {
         float: "left",
         display:"inline"
     }
+  render(){
   return (
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={this.props.handleSubmit}>
         <div className="name">
-          <input name="firstName" type="text" placeholder="First Name" value={props.firstName} onChange={props.handleChange}/>
-          <input name="lastName" type="text" placeholder="Last Name" value={props.lastName} onChange={props.handleChange}/>
+          <input name="firstName" type="text" placeholder="First Name" value={this.props.firstName} onChange={this.props.handleChange}/>
+          <input name="lastName" type="text" placeholder="Last Name" value={this.props.lastName} onChange={this.props.handleChange}/>
         </div>
         <div className="email">
-          <input name="email" type="email" placeholder="Email Address" value={props.email} onChange={props.handleChange}/>
+          <input name="email" type="email" placeholder="Email Address" value={this.props.email} onChange={this.props.handleChange}/>
         </div>
         <div className="password">
-          <input name="password" type="password" placeholder="Password" value={props.password} onChange={props.handleChange}/>
+          <input name="password" type="password" placeholder="Password" value={this.props.password} onChange={this.props.handleChange}/>
         </div>
         <div className="password-confirmation">
           <input
             name="passwordConfirmation"
             type="password"
             placeholder="Password Confirmation"
-            value={props.passwordConfirmation}
-            onChange={props.handleChange}
+            value={this.props.passwordConfirmation}
+            onChange={this.props.handleChange}
           />
         </div>
         <button type="submit">Signup</button>
-        <div className="google-auth" style={divButtonStyle}>
+        <div className="google-auth" style={this.divButtonStyle}>
                         <GoogleLogin
                             clientId={process.env.REACT_APP_Google_ID}
                             buttonText="Login"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
+                            onSuccess={this.responseGoogle}
+                            onFailure={this.responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />
                     </div>
       </form>
   );
+}
 };
 export default SignupView;

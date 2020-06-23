@@ -33,13 +33,13 @@ export default function Profile() {
         textAlign: 'center',
         backgroundColor: 'rgb(0,255,255,0.3)'
     }
-    let socialResultStyle={
-        display: 'flex',  
-        justifyContent:'center', 
-        alignItems:'center',
-        textAlign: 'center',
-        backgroundColor: 'rgb(0,255,255,0.3)'
-    }
+    // let socialResultStyle={
+    //     display: 'flex',  
+    //     justifyContent:'center', 
+    //     alignItems:'center',
+    //     textAlign: 'center',
+    //     backgroundColor: 'rgb(0,255,255,0.3)'
+    // }
     let googleButtonStyle={
         borderRadius: '100%',
         fontSize: '6px'
